@@ -332,38 +332,16 @@ int main()
 		printf("\n");
 	}
 
-	p=graph(a, n);
-	printf("%d\n", p);
-	printf("\nвведите две вершины: ");
-	scanf("%d %d", &i, &j);
-	/*if (grap(a, i - 1, j - 1, n, n) == 1)
+	p = graph(a, n);
+
+	if (p == 0)
 	{
-		printf("\nесть");
+		printf("\n планарный ");
 	}
 	else
 	{
-		printf("\n нет");
+		printf("\n не планарный");
 	}
-	for (i = 0; i < n; ++i)
-	{
-		j = 0;
-		for (int g = 0; g < n; ++g)
-		{
-
-
-			if (g != i)
-			{
-				j = j + grap(a, i, g, n, n);
-			}
-		}
-		if (j == 0)
-		{
-			printf("\n %d", (i + 1));
-			++p;
-		}
-	}
-	if (p == 0)
-		printf("\n нет не подвижных вершин");*/
 	// Очистка памяти
 	for (i = 0; i < n; i++)  // цикл по строкам
 		free(a[i]);   // освобождение памяти под строку

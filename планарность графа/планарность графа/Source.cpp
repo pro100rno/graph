@@ -6,6 +6,14 @@ int graph(int **a, int n)
 {
 	
 	int **b, t,v=0;
+	int d[2][3];
+	for (int i=0; i < 2; ++i)
+	{
+		for (int j=0; j < 3; ++j)
+		{
+			d[i][j] = 0;
+		}
+	}
 	if (n < 5)
 	{
 		
@@ -110,6 +118,37 @@ int graph(int **a, int n)
 		}
 		if (v == n)
 		{
+			t = 0;
+			for (int j = 0; j < n; ++j)
+			{
+				if (a[0][j] == 1)
+				{
+					d[0][t] = j+1;
+					++t;
+				}
+			}
+			t = 0;
+			for (int i = 1; i < n; ++i)
+			{
+				for (int j = 0; j < n; ++j)
+				{
+					if (a[i][j] == 1)
+					{
+						if ((d[0][0] != j + 1) && (d[0][1] != j + 1) && (d[0][2] != j + 1))
+						{
+							if (d[1][t] == 0)
+							{
+								d[1][t] = j + 1;
+								++t;
+							}
+							else if ((d[1][0] != j + 1) && (d[1][1] != j + 1) && (d[1][2] != j + 1))
+							{
+								return 0;
+							}
+						}
+					}
+				}
+			}
 			return 1;
 		}
 
